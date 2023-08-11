@@ -1,28 +1,32 @@
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
 #include <stdio.h>
-/* betty style doc for function main goes there */
 /**
- * main-main function
+ * main - printing random no and giving info abt its xter
  *
- * Return: always 0
+ * Return: always (0)
+ *
  */
 int main(void)
 {
 	int n;
-	int n;
+	int lastd;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	m = n % 10;
-	if (m > 5)
-		printf("Last digit of %d is %d and is greater than 5", n, m);
-	else if (m == 0)
-		printf("Last digit %d is %d is 0", n, m);
-	else if (m < 6 && m != 0)
-		printf("Last digit of %d is %d and is 6 and not 0" n, m);
-	printf("\n");
+	lastd = n % 10;
 
+	if (lastd > 5)
+	{
+		printf("Last digit of %d is %d and is greater than 5\n", n, lastd);
+	}
+	else if (lastd == 0)
+	{
+		printf("Last digit of %d is %d and is 0\n", n, lastd);
+	}
+	else
+	{
+		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, lastd);
+	}
 	return (0);
 }
