@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * main - tests function that points if integar is positive or nagative
+ * main - Entry
  * Return: 0
  */
+
 int main(void)
 {
 	int i;
 
 	i = 0;
 	positive_or_negative(i);
-
 	return (0);
 }
