@@ -9,7 +9,7 @@ int main(void)
 	int i;
 
 	i = 0;
-	postive_nagative(i);
+	postive_or_nagative(i);
 
 	return (0);
 }
