@@ -1,28 +1,28 @@
 #include "main.h"
 /**
- * _isalpha - return 1 when c is cap or low
- *
- * Description: we are using _putchar
- *
- * @c: collect the character
- *
- * Return: 1 if c is low or cap otherwise 0
+ * _strspn - Entry point
+ * @s: input
+ * @accept: input
+ * Return: Always 0 (Success)
  */
-int _isalpha(int c)
+unsigned int _strspn(char *s, char *accept)
 {
-	char lower, upper;
-	int letter = 0;
+	unsigned int n = 0;
+	int r;
 
-	for (lower = 'a'; lower <= 'z'; lower++)
+	while (*s)
 	{
-		for (upper = 'A'; upper <= 'Z'; upper++)
+		for (r = 0; accept[r]; r++)
 		{
-			if (lower == c || upper == c)
+			if (*s == accept[r])
 			{
-				letter = 1;
+				n++;
+				break;
 			}
-
+			else if (accept[r + 1] == '\0')
+				return (n);
 		}
+		s++;
 	}
-	return (letter);
+	return (n);
 }

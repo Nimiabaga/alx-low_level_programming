@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _puts - print string follwed by new line
+ * _puts - print string followed by new line
  *
- * @str: prints strings
+ * @str: prints string
  */
 void _puts(char *str)
 {
@@ -11,7 +11,6 @@ void _puts(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		_putchar(str[i]);
-
 	}
 	_putchar('\n');
 }

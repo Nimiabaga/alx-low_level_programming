@@ -1,28 +1,26 @@
 #include "main.h"
 /**
- * _strstr - function finds the first occurrence of a
- * substring in a string
- * @needle: substring
- * @haystack: string
+ * _strpbrk - the main function search strings for set of byte
  *
- * Return: char pointer to haystack from the subset found
+ * @s: string 1
+ * @accept: string 2
+ *
+ * Return: pointer to byte
  */
-char *_strstr(char *haystack, char *needle)
+char *_strpbrk(char *s, char *accept)
 {
+	char *temp;
 
-	for (; *haystack != '\0'; haystack++)
+	for (; *s != '\0'; s++)
 	{
-		char *l = haystack;
-		char *p = needle;
-
-		while (*l == *p && *p != '\0')
+		temp = accept;
+		for (; *temp != '\0'; temp++)
 		{
-			l++;
-			p++;
+			if (*s == *temp)
+			{
+				return (s);
+			}
 		}
-
-		if (*p == '\0')
-			return (haystack);
 	}
-	return (0);
+	return ('\0');
 }
