@@ -4,6 +4,7 @@
  * @head: pointer to the head pointer
  * which the head points to the node
  * @n: new int. to be created
+ * Return: new element
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
