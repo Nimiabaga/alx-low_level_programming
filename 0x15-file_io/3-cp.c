@@ -1,22 +1,23 @@
 #include "main.h"
+#include <stdio.h>
 
 #define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
-#define ERR_NOCLOSE "Error: Can't close fd %n\n"
+#define ERR_NOCLOSE "Error: Can't close fd %d\n"
 #define ERR_NOWRITE "Error: Can't write to %s\n"
-#define ERR_NOREAD "Error: Can't be read from %s\n"
-#define USAGE "Usage: cp file_from_to\n"
+#define ERR_NOREAD "Error: Can't be read from file %s\n"
+#define USAGE "Usage: cp file_from_file_to\n"
 
 /**
  * main - program
- * @ac: count
- * @av: vector
+ * @ac: count argument
+ * @av: vector arguemnt
  * Return: 1 on success
  */
 int main(int ac, char **av)
 {
 	int fd_from = 0;
 	int fd_to = 0;
-	char buffer[1024];
+	char buffer[READ_BUF_SIZE];
 	ssize_t i;
 
 	if (ac != 3)
@@ -28,7 +29,7 @@ int main(int ac, char **av)
 	if (fd_to == -1)
 		dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
 
-	while ((i = read(fd_from, buffer, 1024)) > 0)
+	while ((i = read(fd_from, buffer, READ_BUF_SIZE)) > 0)
 		if (write(fd_to, buffer, i) != i)
 			dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
 
