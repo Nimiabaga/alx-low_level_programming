@@ -6,16 +6,14 @@
  */
 int _strlen(char *s)
 {
-	int j = 0;
+	int k = 0;
 
 	if (!s)
-	return (0);
+		return (0);
 	while (*s++)
-	j++;
-	return (j);
+		k++;
+	return (k);
 }
-
-#include "main.h"
 
 /**
  * create_file - a function that creates a file.
@@ -26,17 +24,18 @@ int _strlen(char *s)
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	ssize_t bytes_read = 0, len = _strlen(text_content);
+	int i;
+	ssize_t bytes_read = 0;
+	ssize_t len = _strlen(text_content);
 
 	if (filename)
 		return (-1);
 
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-	if (fd == -1)
+	i = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	if (i == -1)
 		return (-1);
 	if (len)
-		bytes_read = write(fd, text_content, len);
-	close(fd);
+		bytes_read = write(i, text_content, len);
+	close(i);
 	return (bytes_read == len ? 1 : -1);
 }
