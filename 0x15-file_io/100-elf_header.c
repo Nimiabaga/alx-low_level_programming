@@ -177,7 +177,7 @@ void print_osabi(unsigned char *e_ident)
 }
 
 /**
- * print_abiversion - Prints the ABI version of an ELF header.
+ * print_abi - this prints the ABI version of an ELF header.
  * @e_ident: A pointer to an array containing the ELF ABI version.
  */
 void print_abi(unsigned char *e_ident)
@@ -189,6 +189,7 @@ void print_abi(unsigned char *e_ident)
 /**
  * print_type - this prints the type of an ELF header.
  * @e_ident: A pointer to an array containing the ELF class.
+ * @e_type: type of ELF
  */
 void print_type(unsigned int e_type, unsigned char *e_ident)
 {
@@ -260,14 +261,14 @@ void close_elf(int elf)
 
 /**
  * main - the information contained in the
- *        ELF header at the start of an ELF file.
+ * ELF header at the start of an ELF file.
  * @argc: number of arguments supplied to the program.
  * @argv: array of pointers to the arguments.
  *
- * Return: 0 on success.
+ * Return: 0 if successful
  *
  * Description: If the file is not an ELF File or
- *              the function fails - exit code 98.
+ * the function fails - exit code 98.
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
