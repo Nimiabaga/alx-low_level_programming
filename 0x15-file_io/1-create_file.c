@@ -28,7 +28,7 @@ int create_file(const char *filename, char *text_content)
 	ssize_t bytes_read = 0;
 	ssize_t len = _strlen(text_content);
 
-	if (filename)
+	if (!filename)
 		return (-1);
 
 	i = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
