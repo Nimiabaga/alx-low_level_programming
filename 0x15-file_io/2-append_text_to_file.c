@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _strlen - returns lenght of string
  * @s: string to check
@@ -7,13 +8,15 @@
 int _strlen(char *s)
 {
 	int k = 0;
-	 if (!s)
-		 return (0);
-	 while (s++)
+
+	if (!s)
+	return (0);
+	while (s++);
 		 k++;
 	 return (k);
 
 }
+
 /**
  * append_text_to_file - a function that appends text at the end of a file.
  * @text_content: NULL terminated string to add at the end of the file
