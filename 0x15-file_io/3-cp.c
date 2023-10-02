@@ -1,11 +1,11 @@
 #include "main.h"
 #include <stdio.h>
 
-#define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 #define ERR_NOCLOSE "Error: Can't close fd %d\n"
 #define ERR_NOWRITE "Error: Can't write to %s\n"
 #define ERR_NOREAD "Error: Can't be read from file %s\n"
 #define USAGE "Usage: cp file_from_file_to\n"
+#define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 
 /**
  * main - program
