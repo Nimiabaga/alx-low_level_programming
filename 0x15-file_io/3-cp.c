@@ -11,13 +11,13 @@
  * main - program
  * @ac: count argument
  * @av: vector arguemnt
- * Return: 1 on success
+ * Return: 1 on success 0 on failure
  */
 int main(int ac, char **av)
 {
 	int fd_from = 0;
 	int fd_to = 0;
-	char buffer[READ_BUF_SIZE];
+	char buffer[1024];
 	ssize_t i;
 
 	if (ac != 3)
@@ -29,7 +29,7 @@ int main(int ac, char **av)
 	if (fd_to == -1)
 		dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
 
-	while ((i = read(fd_from, buffer, READ_BUF_SIZE)) > 0)
+	while ((i = read(fd_from, buffer, 1024)) > 0)
 		if (write(fd_to, buffer, i) != i)
 			dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
 
