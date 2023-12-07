@@ -1,43 +1,30 @@
 #include "lists.h"
-
 /**
- * add_dnodeint - Adds a new node at the beginning of a dlistint_t list
- * @head: Pointer to the head of the list
- * @n: Integer value for the new node
+ * add_dnodeint - Func adds a new node
+ * @head: Head
+ * @n: Elem. value
  *
- * Return: Address of the new element, or NULL if it failed
+ * Return: Elem. address
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-	dlistint_t *new_node, *current_head;
+	dlistint_t *u, *v;
 
-	/* Allocate memory for the new node */
-	new_node = malloc(sizeof(dlistint_t));
-	if (!new_node)
+	u = malloc(sizeof(dlistint_t));
+	if (!u)
 		return (NULL);
+	u->n = n;
+	u->prev = NULL;
+	v = *head;
 
-	/* Initialize the new node */
-	new_node->n = n;
-	new_node->prev = NULL;
-
-	/* Find the current head of the list */
-	current_head = *head;
-
-	/* Traverse to the first node if the list is not empty */
-	if (current_head != NULL)
+	if (v != NULL)
 	{
-		while (current_head->prev != NULL)
-			current_head = current_head->prev;
+		while (v->prev != NULL)
+			v = v->prev;
 	}
-
-	/* Update pointers for the new node and the current head */
-	new_node->next = current_head;
-	if (current_head != NULL)
-		current_head->prev = new_node;
-
-	/* Update the head to point to the new node */
-	*head = new_node;
-
-	return (new_node);
+	u->next = v;
+	if (v != NULL)
+		v->prev = u;
+	*head = u;
+	return (u);
 }
-
