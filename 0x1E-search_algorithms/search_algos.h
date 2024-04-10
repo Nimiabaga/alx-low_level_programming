@@ -50,7 +50,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value);
 skiplist_t *linear_skip(skiplist_t *list, int value);
 
 /* Helper Prototypes */
-int r_search(int *array, size_t begin, size_t end, int value);
+int binary_search_r(int *array, size_t begin, size_t end, int value);
 int bi_search(int *arr, size_t bgn, size_t end, int val);
 
 #endif
